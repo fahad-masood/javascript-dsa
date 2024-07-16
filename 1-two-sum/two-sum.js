@@ -6,12 +6,15 @@
 var twoSum = function(nums, target) {
     let left = 0, right = nums.length - 1;
 
-    for(let i = 0; i < nums.length - 1; i++){
-        for(j = i+1; j < nums.length; j++){
-            if(nums[i] + nums[j] === target){
-                return [i, j]
-            }
+    let map = {
+
+    }
+
+    for(let i = 0; i < nums.length; i++){
+        if (target - nums[i] in map){
+            return [i, map[target - nums[i]]]
         }
+        map[nums[i]] = i; 
     }
     return []
 };
